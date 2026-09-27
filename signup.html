@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>회원가입 | TOBIC 국제 실용 구기 능력 시험</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, "Noto Sans KR", sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+            color: #0d47a1;
+            text-decoration: none;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 13px;
+            font-weight: normal;
+            color: #666;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .signup-box {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        }
+
+        .signup-box h1 {
+            text-align: center;
+            color: #0d47a1;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #1976d2;
+        }
+
+        .signup-button {
+            width: 100%;
+            border: none;
+            background: #0d47a1;
+            color: white;
+            padding: 14px;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .signup-button:hover {
+            background: #083b87;
+        }
+
+        .signup-button:disabled {
+            background: #999;
+            cursor: not-allowed;
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 7px;
+            text-align: center;
+            display: none;
+            font-size: 14px;
+        }
+
+        .success {
+            display: block;
+            background: #e8f5e9;
+            color: #1b5e20;
+        }
+
+        .error {
+            display: block;
+            background: #ffebee;
+            color: #b71c1c;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 25px;
+            color: #555;
+        }
+
+        .login-link a {
+            color: #0d47a1;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+            padding: 30px 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 30px auto;
+            }
+
+            .signup-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">
+            TOBIC
+            <span>국제 실용 구기 능력 시험</span>
+        </a>
+
+    </div>
+</header>
+
+
+<div class="container">
+
+    <div class="signup-box">
+
+        <h1>TOBIC 회원가입</h1>
+
+        <p class="description">
+            TOBIC 국제 실용 구기 능력 시험<br>
+            회원으로 가입합니다.
+        </p>
+
+
+        <form id="signupForm">
+
+            <div class="form-group">
+                <label for="name">이름</label>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="이름을 입력하세요"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="email">이메일</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="example@email.com"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="password">비밀번호</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="비밀번호를 입력하세요"
+                    minlength="6"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="passwordConfirm">
+                    비밀번호 확인
+                </label>
+
+                <input
+                    type="password"
+                    id="passwordConfirm"
+                    placeholder="비밀번호를 다시 입력하세요"
+                    minlength="6"
+                    required
+                >
+            </div>
+
+
+            <button
+                type="submit"
+                class="signup-button"
+                id="signupButton"
+            >
+                회원가입
+            </button>
+
+        </form>
+
+
+        <div id="message" class="message"></div>
+
+
+        <div class="login-link">
+            이미 회원이신가요?
+            <a href="login.html">로그인</a>
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <p>
+        TOBIC 국제 실용 구기 능력 시험
+    </p>
+
+    <p>
+        Test Of Ball sports for International Certification
+    </p>
+
+    <p>
+        © TOBIC. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+    /*
+    ===================================================
+    아래 두 곳을 본인의 Supabase 정보로 변경하세요.
+    ===================================================
+    */
+
+    const SUPABASE_URL =
+        "https://zbnpdxxtkbkogjlswzpr.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+        "sb_publishable_E2Urt7TjWt9b4M0MW1CYeQ_sFa45BDG";
+
+
+    const supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_PUBLISHABLE_KEY
+        );
+
+
+    const signupForm =
+        document.getElementById("signupForm");
+
+    const message =
+        document.getElementById("message");
+
+    const signupButton =
+        document.getElementById("signupButton");
+
+
+    signupForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById("name").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            const passwordConfirm =
+                document.getElementById("passwordConfirm").value;
+
+
+            message.style.display = "none";
+            message.className = "message";
+
+
+            if (password !== passwordConfirm) {
+
+                message.textContent =
+                    "비밀번호가 서로 일치하지 않습니다.";
+
+                message.className =
+                    "message error";
+
+                return;
+            }
+
+
+            signupButton.disabled = true;
+            signupButton.textContent = "가입 처리 중...";
+
+
+            try {
+
+                const { data, error } =
+                    await supabaseClient.auth.signUp({
+
+                        email: email,
+
+                        password: password,
+
+                        options: {
+
+                            data: {
+                                name: name
+                            },
+
+                            emailRedirectTo:
+                                "https://www.tobic.kr/"
+                        }
+
+                    });
+
+
+                if (error) {
+
+                    message.textContent =
+                        "회원가입 오류: " + error.message;
+
+                    message.className =
+                        "message error";
+
+                    return;
+                }
+
+
+                message.innerHTML =
+                    "회원가입 신청이 완료되었습니다.<br>" +
+                    "이메일 인증 메일이 발송된 경우 " +
+                    "메일에서 인증을 완료해 주세요.";
+
+                message.className =
+                    "message success";
+
+
+                signupForm.reset();
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                message.textContent =
+                    "회원가입 중 오류가 발생했습니다.";
+
+                message.className =
+                    "message error";
+
+            } finally {
+
+                signupButton.disabled = false;
+                signupButton.textContent = "회원가입";
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>

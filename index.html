@@ -1,303 +1,683 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TOBIC 국제 실용 구기 능력 시험</title>
+  <title>TOBIC | 국제 실용 구기 능력 시험</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <meta name="description"
+        content="TOBIC 국제 실용 구기 능력 시험 - Test Of Ball sports for International Certification">
 
-        body {
-            font-family: Arial, "Noto Sans KR", sans-serif;
-            color: #222;
-            background: #f5f7fa;
-            line-height: 1.6;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        header {
-            background: #ffffff;
-            border-bottom: 1px solid #ddd;
-        }
+    body {
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      background: #f4f7fb;
+      color: #222;
+    }
 
-        .header-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        .logo {
-            font-size: 32px;
-            font-weight: 800;
-            color: #111;
-        }
+    /* =========================
+       HEADER
+    ========================= */
 
-        .logo span {
-            display: block;
-            font-size: 13px;
-            font-weight: normal;
-            color: #666;
-            margin-top: -5px;
-        }
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: #333;
-            margin-left: 25px;
-            font-weight: 600;
-        }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
 
-        nav a:hover {
-            color: #1264d8;
-        }
+    .logo a {
+      display: block;
+    }
 
-        .hero {
-            background: linear-gradient(135deg, #0d47a1, #1976d2);
-            color: white;
-            padding: 80px 20px;
-        }
+    .logo h1 {
+      color: #0b4fa8;
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
 
-        .hero-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .logo p {
+      margin-top: 3px;
+      font-size: 13px;
+      color: #666;
+    }
 
-        .hero h1 {
-            font-size: 46px;
-            margin-bottom: 20px;
-        }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: 15px;
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
 
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
+    nav a:hover {
+      color: #1458b5;
+    }
 
-        .button {
-            display: inline-block;
-            background: white;
-            color: #0d47a1;
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .member-menu {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-        .section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
+    .member-menu a,
+    .logout-button {
+      color: #0b4fa8;
+      font-weight: 700;
+    }
 
-        .section h2 {
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 35px;
-        }
+    .logout-button {
+      border: 0;
+      background: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 15px;
+      padding: 0;
+    }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
+    .user-name {
+      color: #555;
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-        }
+    /* =========================
+       HERO
+    ========================= */
 
-        .card h3 {
-            font-size: 21px;
-            margin-bottom: 12px;
-            color: #0d47a1;
-        }
+    .hero {
+      background: linear-gradient(120deg, #1552a5, #2478d0);
+      color: white;
+    }
 
-        .card p {
-            color: #555;
-        }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 75px 20px;
+    }
 
-        .notice {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-        }
+    .hero h2 {
+      font-size: 40px;
+      margin-bottom: 28px;
+      line-height: 1.3;
+    }
 
-        .notice p {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
+    .hero .english-title {
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
 
-        footer {
-            background: #222;
-            color: #ddd;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 30px;
-        }
+    .hero .slogan {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
 
-        @media (max-width: 800px) {
+    .hero-button {
+      display: inline-block;
+      background: white;
+      color: #1552a5;
+      padding: 14px 24px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
 
-            .header-inner {
-                flex-direction: column;
-                gap: 15px;
-            }
+    .hero-button:hover {
+      background: #f1f5fb;
+    }
 
-            nav a {
-                margin: 0 8px;
-                font-size: 14px;
-            }
+    /* =========================
+       MAIN CONTENT
+    ========================= */
 
-            .hero h1 {
-                font-size: 34px;
-            }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 55px 20px 70px;
+    }
 
-            .hero p {
-                font-size: 17px;
-            }
+    .section-title {
+      text-align: center;
+      font-size: 27px;
+      margin-bottom: 38px;
+    }
 
-            .cards {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 28px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    }
+
+    .card h3 {
+      color: #0b4fa8;
+      font-size: 19px;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: #555;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* =========================
+       TOBIC INTRO
+    ========================= */
+
+    .intro-section {
+      margin-top: 55px;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .intro-section h2 {
+      text-align: center;
+      color: #0b4fa8;
+      margin-bottom: 22px;
+    }
+
+    .intro-section p {
+      text-align: center;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    /* =========================
+       ORGANIZER
+    ========================= */
+
+    .organizer {
+      margin-top: 45px;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    .organizer h3 {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .organizer-name {
+      font-size: 21px;
+      font-weight: 700;
+      color: #0b4fa8;
+      margin-bottom: 10px;
+    }
+
+    .organizer a {
+      color: #1458b5;
+      font-weight: 600;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #1f2937;
+      color: #ddd;
+      text-align: center;
+      padding: 30px 20px;
+      line-height: 1.7;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 15px;
+      }
+
+      .hero-inner {
+        padding: 55px 20px;
+      }
+
+      .hero h2 {
+        font-size: 31px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      nav {
+        font-size: 14px;
+      }
+
+      .member-menu {
+        width: 100%;
+        margin-top: 5px;
+      }
+
+      .hero h2 {
+        font-size: 27px;
+      }
+
+      .hero .english-title {
+        font-size: 15px;
+      }
+
+      .intro-section {
+        padding: 28px 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
-    <div class="header-inner">
 
-        <div class="logo">
-            TOBIC
-            <span>국제 실용 구기 능력 시험</span>
-        </div>
+  <div class="header-inner">
 
-        <nav>
-            <a href="#">시험안내</a>
-            <a href="#">원서접수</a>
-            <a href="#">성적조회</a>
-            <a href="#">공지사항</a>
-        </nav>
-
+    <div class="logo">
+      <a href="index.html">
+        <h1>TOBIC</h1>
+        <p>국제 실용 구기 능력 시험</p>
+      </a>
     </div>
+
+    <nav>
+
+      <a href="#exam">시험안내</a>
+
+      <a href="application.html">원서접수</a>
+
+      <a href="result.html">성적조회</a>
+
+      <a href="notice.html">공지사항</a>
+
+      <!-- 로그인 전 -->
+      <div id="guestMenu" class="member-menu">
+        <a href="login.html">로그인</a>
+        <a href="signup.html">회원가입</a>
+      </div>
+
+      <!-- 로그인 후 -->
+      <div id="userMenu"
+           class="member-menu"
+           style="display:none;">
+
+        <span id="userName"
+              class="user-name"></span>
+
+        <a href="mypage.html">마이페이지</a>
+
+        <button
+          type="button"
+          id="logoutButton"
+          class="logout-button">
+          로그아웃
+        </button>
+
+      </div>
+
+    </nav>
+
+  </div>
+
 </header>
 
 
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
 
-    <div class="hero-inner">
+  <div class="hero-inner">
 
-        <h1>국제 실용 구기 능력 시험</h1>
+    <h2>
+      국제 실용 구기 능력 시험
+    </h2>
 
-        <p>
-            Test Of Ball sports for International Certification
-        </p>
+    <p class="english-title">
+      Test Of Ball sports for International Certification
+    </p>
 
-        <p>
-            영어 능력 평가는 TOEIC,<br>
-            구기 종목 능력 평가는 TOBIC
-        </p>
+    <p class="slogan">
+      영어 능력 평가는 TOEIC,<br>
+      구기 종목 능력 평가는 TOBIC
+    </p>
 
-        <a href="#" class="button">
-            시험 안내 보기
-        </a>
+    <a href="#exam"
+       class="hero-button">
+       시험 안내 보기
+    </a>
 
-    </div>
+  </div>
 
 </section>
 
 
-<section class="section">
+<!-- =========================
+     MAIN
+========================= -->
 
-    <h2>TOBIC 평가 영역</h2>
+<main>
+
+  <section id="exam">
+
+    <h2 class="section-title">
+      TOBIC 평가 영역
+    </h2>
 
     <div class="cards">
 
-        <div class="card">
-            <h3>① 구기 기초능력 평가</h3>
-            <p>
-                다양한 구기 종목에 필요한 기본적인
-                공 조절 및 라켓 활용 능력을 평가합니다.
-            </p>
-        </div>
+      <div class="card">
 
-        <div class="card">
-            <h3>② 기술 수행능력 평가</h3>
-            <p>
-                구기 종목에서 요구되는 기술 수행 능력을
-                체계적으로 평가합니다.
-            </p>
-        </div>
+        <h3>
+          ① 구기 기초능력 평가
+        </h3>
 
-        <div class="card">
-            <h3>③ 배려 랠리 능력 평가</h3>
-            <p>
-                라켓과 발을 활용하여 상대방과 함께
-                랠리를 이어가는 능력을 평가합니다.
-            </p>
-        </div>
+        <p>
+          다양한 구기 종목에 필요한
+          기본적인 공 조절 및 라켓 활용 능력을
+          평가합니다.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>
+          ② 기술 수행능력 평가
+        </h3>
+
+        <p>
+          구기 종목에서 요구되는
+          기술 수행 능력을 체계적으로
+          평가합니다.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>
+          ③ 배려 랠리 능력 평가
+        </h3>
+
+        <p>
+          라켓과 발을 활용하여
+          상대방과 함께 랠리를 이어가는
+          능력을 평가합니다.
+        </p>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<section class="section">
+  <!-- TOBIC 소개 -->
 
-    <h2>TOBIC 시험 안내</h2>
+  <section class="intro-section">
 
-    <div class="notice">
+    <h2>
+      TOBIC
+    </h2>
 
-        <p>
-            <strong>시험접수</strong>　
-            온라인으로 간편하게 시험을 신청할 수 있습니다.
-        </p>
+    <p>
+      TOBIC은 국제 실용 구기 능력 시험으로,
+      구기 종목에 필요한 기초능력과
+      기술 수행능력 등을 체계적으로
+      평가하기 위한 시험입니다.
+    </p>
 
-        <p>
-            <strong>시험관리</strong>　
-            시험일정 및 시험장 정보를 확인할 수 있습니다.
-        </p>
+  </section>
 
-        <p>
-            <strong>성적관리</strong>　
-            시험 결과와 등급을 온라인으로 확인할 수 있습니다.
-        </p>
 
-        <p>
-            <strong>성적확인</strong>　
-            성적표 및 성적 진위 확인 서비스를 제공합니다.
-        </p>
+  <!-- 주관사 -->
 
+  <section class="organizer">
+
+    <h3>
+      TOBIC 시험 주관사
+    </h3>
+
+    <div class="organizer-name">
+      세계킥테니스연맹
     </div>
 
-</section>
+    <a href="https://www.wkf.kr"
+       target="_blank"
+       rel="noopener noreferrer">
+       www.wkf.kr
+    </a>
 
+  </section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-    <p>
-        TOBIC 국제 실용 구기 능력 시험
-    </p>
+  <strong>
+    TOBIC 국제 실용 구기 능력 시험
+  </strong>
 
-    <p>
-        Test Of Ball sports for International Certification
-    </p>
+  <br>
 
-    <p>
-        © TOBIC. All Rights Reserved.
-    </p>
+  Test Of Ball sports for International Certification
+
+  <br><br>
+
+  주관 : 세계킥테니스연맹
+
+  <br>
+
+  © TOBIC. All Rights Reserved.
 
 </footer>
+
+
+<!-- =========================
+     SUPABASE
+========================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+  /*
+  ==========================================
+  TOBIC Supabase 설정
+  ==========================================
+  */
+
+  const SUPABASE_URL =
+    "https://zbnpdxxtkbkogjlswzpr.supabase.co";
+
+  const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_E2Urt7TjWt9b4M0MW1CYeQ_sFa45BDG";
+
+  const supabaseClient =
+    window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+  /*
+  ==========================================
+  로그인 상태 확인
+  ==========================================
+  */
+
+  async function checkLoginStatus() {
+
+    const guestMenu =
+      document.getElementById("guestMenu");
+
+    const userMenu =
+      document.getElementById("userMenu");
+
+    const userName =
+      document.getElementById("userName");
+
+
+    const {
+      data: { session }
+    } =
+      await supabaseClient.auth.getSession();
+
+
+    if (session && session.user) {
+
+      guestMenu.style.display = "none";
+
+      userMenu.style.display = "flex";
+
+
+      const user = session.user;
+
+      const displayName =
+        user.user_metadata?.name ||
+        user.user_metadata?.display_name ||
+        user.email ||
+        "회원";
+
+
+      userName.textContent =
+        displayName + "님";
+
+    }
+
+    else {
+
+      guestMenu.style.display = "flex";
+
+      userMenu.style.display = "none";
+
+      userName.textContent = "";
+
+    }
+
+  }
+
+
+  /*
+  ==========================================
+  로그아웃
+  ==========================================
+  */
+
+  document
+    .getElementById("logoutButton")
+    .addEventListener(
+      "click",
+      async function () {
+
+        const { error } =
+          await supabaseClient.auth.signOut({
+            scope: "local"
+          });
+
+
+        if (error) {
+
+          alert(
+            "로그아웃 중 오류가 발생했습니다.\n" +
+            error.message
+          );
+
+          return;
+
+        }
+
+
+        alert("로그아웃되었습니다.");
+
+        window.location.href =
+          "index.html";
+
+      }
+    );
+
+
+  /*
+  ==========================================
+  로그인 상태가 변경될 때 메뉴 갱신
+  ==========================================
+  */
+
+  supabaseClient.auth.onAuthStateChange(
+    function () {
+
+      checkLoginStatus();
+
+    }
+  );
+
+
+  /*
+  ==========================================
+  페이지 시작
+  ==========================================
+  */
+
+  checkLoginStatus();
+
+</script>
 
 </body>
 </html>

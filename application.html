@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>TOBIC 원서접수 | 국제 실용 구기 능력 시험</title>
+
+  <meta
+    name="description"
+    content="TOBIC 국제 실용 구기 능력 시험 온라인 원서접수"
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      background: #f4f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .header-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+    }
+
+    .logo {
+      cursor: pointer;
+    }
+
+    .logo-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: #0755a5;
+      letter-spacing: 1px;
+      line-height: 1.1;
+    }
+
+    .logo-sub {
+      margin-top: 5px;
+      font-size: 12px;
+      color: #777;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: #0755a5;
+    }
+
+    nav .active {
+      color: #0755a5;
+    }
+
+    .logout-link {
+      color: #0755a5;
+      cursor: pointer;
+    }
+
+    /* =========================
+       PAGE TITLE
+    ========================= */
+
+    .page-title {
+      background: linear-gradient(135deg, #1655a4, #287fd0);
+      color: white;
+      padding: 55px 20px;
+    }
+
+    .page-title-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .page-title h1 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .page-title p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      max-width: 900px;
+      margin: 45px auto 70px;
+      padding: 0 20px;
+    }
+
+    .notice {
+      background: #eef6ff;
+      border: 1px solid #cfe4ff;
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 25px;
+      color: #164f8f;
+      font-size: 14px;
+    }
+
+    .form-card {
+      background: white;
+      border-radius: 14px;
+      padding: 35px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+    }
+
+    .section-title {
+      font-size: 21px;
+      color: #0755a5;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #0755a5;
+    }
+
+    .section-title:not(:first-child) {
+      margin-top: 40px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .required {
+      color: #e53935;
+    }
+
+    input,
+    select {
+      width: 100%;
+      height: 48px;
+      border: 1px solid #d4d9e0;
+      border-radius: 7px;
+      padding: 0 13px;
+      font-size: 15px;
+      background: white;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #0755a5;
+      box-shadow: 0 0 0 3px rgba(7, 85, 165, 0.08);
+    }
+
+    input[readonly] {
+      background: #f5f6f8;
+      color: #666;
+    }
+
+    .help-text {
+      margin-top: 5px;
+      font-size: 12px;
+      color: #777;
+    }
+
+    /* =========================
+       AGREEMENT
+    ========================= */
+
+    .agreement-box {
+      margin-top: 15px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      background: #fafafa;
+      border-radius: 8px;
+    }
+
+    .agreement-text {
+      max-height: 130px;
+      overflow-y: auto;
+      background: white;
+      border: 1px solid #e3e3e3;
+      padding: 15px;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .check-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .check-line input {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .button-area {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 7px;
+      padding: 14px 32px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      background: #0755a5;
+      color: white;
+      min-width: 190px;
+    }
+
+    .submit-btn:hover {
+      background: #064887;
+    }
+
+    .submit-btn:disabled {
+      background: #9aa8b8;
+      cursor: not-allowed;
+    }
+
+    .cancel-btn {
+      background: #e9edf2;
+      color: #333;
+    }
+
+    /* =========================
+       MESSAGE
+    ========================= */
+
+    .message {
+      display: none;
+      margin-top: 25px;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .message.success {
+      display: block;
+      background: #eaf8ef;
+      border: 1px solid #b8e1c5;
+      color: #19703a;
+    }
+
+    .message.error {
+      display: block;
+      background: #fff0f0;
+      border: 1px solid #f0bcbc;
+      color: #b3261e;
+    }
+
+    /* =========================
+       SUCCESS CARD
+    ========================= */
+
+    #successCard {
+      display: none;
+      background: white;
+      border-radius: 14px;
+      padding: 45px 30px;
+      text-align: center;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    }
+
+    .success-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: #e8f5ec;
+      color: #17863d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 38px;
+      font-weight: bold;
+    }
+
+    #successCard h2 {
+      color: #0755a5;
+      margin-bottom: 12px;
+    }
+
+    .application-number {
+      margin: 25px auto;
+      max-width: 420px;
+      padding: 20px;
+      background: #f1f6fc;
+      border-radius: 8px;
+    }
+
+    .application-number strong {
+      display: block;
+      color: #0755a5;
+      font-size: 22px;
+      margin-top: 5px;
+    }
+
+    .mypage-btn {
+      display: inline-block;
+      background: #0755a5;
+      color: white;
+      padding: 13px 25px;
+      border-radius: 7px;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #17202b;
+      color: #cbd2da;
+      padding: 35px 20px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+      font-size: 15px;
+    }
+
+    footer a {
+      color: #cbd2da;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
+      .header-inner {
+        display: block;
+      }
+
+      nav {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        gap: 13px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .form-card {
+        padding: 25px 18px;
+      }
+
+      .page-title h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <div class="logo" onclick="location.href='index.html'">
+      <div class="logo-title">TOBIC</div>
+      <div class="logo-sub">국제 실용 구기 능력 시험</div>
+    </div>
+
+    <nav>
+      <a href="index.html">시험안내</a>
+      <a href="application.html" class="active">원서접수</a>
+      <a href="mypage.html">성적조회</a>
+      <a href="index.html#notice">공지사항</a>
+      <span id="memberName"></span>
+      <a href="mypage.html">마이페이지</a>
+      <span class="logout-link" id="logoutBtn">로그아웃</span>
+    </nav>
+
+  </div>
+</header>
+
+
+<section class="page-title">
+  <div class="page-title-inner">
+    <h1>TOBIC 원서접수</h1>
+    <p>국제 실용 구기 능력 시험 온라인 원서접수</p>
+  </div>
+</section>
+
+
+<main>
+
+  <div class="notice">
+    <strong>원서접수 안내</strong><br>
+    응시자 정보를 정확하게 입력해 주세요.
+    접수가 완료되면 접수번호가 발급되며,
+    접수 내역은 마이페이지에서 확인할 수 있습니다.
+  </div>
+
+
+  <div id="applicationFormCard" class="form-card">
+
+    <form id="applicationForm">
+
+      <h2 class="section-title">1. 응시자 정보</h2>
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label>
+            성명 <span class="required">*</span>
+          </label>
+          <input
+            type="text"
+            id="name"
+            maxlength="30"
+            required
+            placeholder="성명을 입력하세요"
+          >
+        </div>
+
+        <div class="form-group">
+          <label>
+            이메일 <span class="required">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            readonly
+          >
+          <div class="help-text">
+            회원가입 시 인증된 이메일입니다.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>
+            생년월일 <span class="required">*</span>
+          </label>
+          <input
+            type="date"
+            id="birthDate"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label>
+            성별 <span class="required">*</span>
+          </label>
+
+          <select id="gender" required>
+            <option value="">선택하세요</option>
+            <option value="남">남</option>
+            <option value="여">여</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label>
+            휴대전화 <span class="required">*</span>
+          </label>
+
+          <input
+            type="tel"
+            id="phone"
+            maxlength="20"
+            required
+            placeholder="010-1234-5678"
+          >
+        </div>
+
+      </div>
+
+
+      <h2 class="section-title">2. 시험 정보</h2>
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label>
+            시험 종목 <span class="required">*</span>
+          </label>
+
+          <select id="examSubject" required>
+            <option value="">시험 종목을 선택하세요</option>
+
+            <option value="배드민턴">배드민턴</option>
+            <option value="테니스">테니스</option>
+            <option value="탁구">탁구</option>
+            <option value="축구">축구</option>
+            <option value="족구">족구</option>
+            <option value="세팍타크로">세팍타크로</option>
+            <option value="핸드볼">핸드볼</option>
+            <option value="야구">야구</option>
+            <option value="배구">배구</option>
+            <option value="농구">농구</option>
+            <option value="골프">골프</option>
+            <option value="킥테니스">킥테니스</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>
+            시험일 <span class="required">*</span>
+          </label>
+
+          <input
+            type="date"
+            id="examDate"
+            required
+          >
+        </div>
+
+
+        <div class="form-group full">
+          <label>
+            시험장 <span class="required">*</span>
+          </label>
+
+          <select id="examPlace" required>
+            <option value="">시험장을 선택하세요</option>
+            <option value="TOBIC 지정 시험장">TOBIC 지정 시험장</option>
+            <option value="학교 지정 시험장">학교 지정 시험장</option>
+            <option value="단체 지정 시험장">단체 지정 시험장</option>
+            <option value="추후 공지">추후 공지</option>
+          </select>
+
+          <div class="help-text">
+            실제 시험장 운영에 따라 추후 시험장 선택 항목을 변경할 수 있습니다.
+          </div>
+        </div>
+
+      </div>
+
+
+      <h2 class="section-title">3. 개인정보 수집 및 이용 동의</h2>
+
+      <div class="agreement-box">
+
+        <div class="agreement-text">
+          <strong>개인정보 수집 및 이용 안내</strong>
+          <br><br>
+
+          TOBIC 국제 실용 구기 능력 시험은
+          시험 원서접수, 응시자 확인, 시험 운영,
+          성적 처리 및 자격 확인을 위하여
+          필요한 개인정보를 수집·이용합니다.
+
+          <br><br>
+
+          수집 항목:
+          성명, 이메일, 생년월일, 성별, 휴대전화번호,
+          시험 종목, 시험일, 시험장 등
+
+          <br><br>
+
+          입력한 정보는 시험 운영 및 응시자 관리 목적에
+          필요한 범위에서 이용됩니다.
+
+          <br><br>
+
+          개인정보 수집 및 이용에 동의하지 않을 수 있으나,
+          필수 정보의 수집 및 이용에 동의하지 않는 경우
+          시험 원서접수가 제한될 수 있습니다.
+        </div>
+
+        <label class="check-line">
+          <input
+            type="checkbox"
+            id="agree"
+            required
+          >
+          <span>
+            개인정보 수집 및 이용에 동의합니다.
+            <span class="required">(필수)</span>
+          </span>
+        </label>
+
+      </div>
+
+
+      <div id="message" class="message"></div>
+
+
+      <div class="button-area">
+
+        <button
+          type="button"
+          class="cancel-btn"
+          onclick="location.href='index.html'"
+        >
+          취소
+        </button>
+
+        <button
+          type="submit"
+          id="submitBtn"
+          class="submit-btn"
+        >
+          원서접수 완료
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+
+  <!-- 접수 성공 화면 -->
+
+  <div id="successCard">
+
+    <div class="success-icon">✓</div>
+
+    <h2>원서접수가 완료되었습니다.</h2>
+
+    <p>
+      TOBIC 국제 실용 구기 능력 시험 원서가
+      정상적으로 접수되었습니다.
+    </p>
+
+    <div class="application-number">
+      접수번호
+      <strong id="issuedNumber"></strong>
+    </div>
+
+    <p>
+      접수번호와 접수 내역은 마이페이지에서
+      다시 확인할 수 있습니다.
+    </p>
+
+    <br>
+
+    <a href="mypage.html" class="mypage-btn">
+      마이페이지에서 확인
+    </a>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <p>
+    <strong>TOBIC 국제 실용 구기 능력 시험</strong>
+  </p>
+
+  <p style="margin-top:8px;">
+    Test Of Ball sports for International Certification
+  </p>
+
+  <p style="margin-top:15px;">
+    시험 주관:
+    <strong>세계킥테니스연맹 (WKF)</strong>
+  </p>
+
+  <p style="margin-top:5px;">
+    <a
+      href="https://www.wkf.kr"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      www.wkf.kr
+    </a>
+  </p>
+
+  <p style="margin-top:18px;">
+    © TOBIC · World KICKtennis Federation. All Rights Reserved.
+  </p>
+
+</footer>
+
+
+<!-- Supabase JavaScript Library -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+  /*
+  ==========================================================
+  TOBIC Supabase 설정
+  ==========================================================
+  */
+
+  const SUPABASE_URL =
+    "https://zbnpdxxxtkbkogjlswzpr.supabase.co";
+
+  const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_E2UrT7jWtb94W0MW1CYeQ_sFa45BDG";
+
+
+  /*
+  ==========================================================
+  Supabase 연결
+  ==========================================================
+  */
+
+  const supabaseClient =
+    window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+  /*
+  ==========================================================
+  화면 요소
+  ==========================================================
+  */
+
+  const applicationForm =
+    document.getElementById("applicationForm");
+
+  const applicationFormCard =
+    document.getElementById("applicationFormCard");
+
+  const successCard =
+    document.getElementById("successCard");
+
+  const submitBtn =
+    document.getElementById("submitBtn");
+
+  const messageBox =
+    document.getElementById("message");
+
+  const emailInput =
+    document.getElementById("email");
+
+  const nameInput =
+    document.getElementById("name");
+
+  const memberName =
+    document.getElementById("memberName");
+
+  const logoutBtn =
+    document.getElementById("logoutBtn");
+
+
+  let currentUser = null;
+
+
+  /*
+  ==========================================================
+  메시지 표시
+  ==========================================================
+  */
+
+  function showMessage(text, type) {
+
+    messageBox.textContent = text;
+    messageBox.className = "message " + type;
+
+  }
+
+
+  /*
+  ==========================================================
+  접수번호 생성
+  예: TOBIC-20261001-A1B2C3
+  ==========================================================
+  */
+
+  function createApplicationNumber() {
+
+    const now = new Date();
+
+    const year =
+      now.getFullYear();
+
+    const month =
+      String(now.getMonth() + 1).padStart(2, "0");
+
+    const day =
+      String(now.getDate()).padStart(2, "0");
+
+    const random =
+      Math.random()
+        .toString(36)
+        .substring(2, 8)
+        .toUpperCase();
+
+    return `TOBIC-${year}${month}${day}-${random}`;
+
+  }
+
+
+  /*
+  ==========================================================
+  로그인 회원 확인
+  ==========================================================
+  */
+
+  async function checkLogin() {
+
+    try {
+
+      const {
+        data: { session },
+        error
+      } =
+        await supabaseClient.auth.getSession();
+
+
+      if (error) {
+
+        console.error(error);
+
+        alert(
+          "회원 로그인 정보를 확인할 수 없습니다."
+        );
+
+        location.href = "login.html";
+
+        return;
+
+      }
+
+
+      if (!session || !session.user) {
+
+        alert(
+          "원서접수는 로그인 후 이용할 수 있습니다."
+        );
+
+        location.href = "login.html";
+
+        return;
+
+      }
+
+
+      currentUser = session.user;
+
+
+      /*
+      이메일 자동 입력
+      */
+
+      emailInput.value =
+        currentUser.email || "";
+
+
+      /*
+      회원 이름이 metadata에 있으면 자동 입력
+      */
+
+      const metadata =
+        currentUser.user_metadata || {};
+
+      const savedName =
+        metadata.display_name ||
+        metadata.name ||
+        metadata.full_name ||
+        "";
+
+
+      if (savedName) {
+
+        nameInput.value = savedName;
+
+        memberName.textContent =
+          savedName + "님";
+
+      } else {
+
+        memberName.textContent = "";
+
+      }
+
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert(
+        "로그인 확인 중 오류가 발생했습니다."
+      );
+
+      location.href = "login.html";
+
+    }
+
+  }
+
+
+  /*
+  ==========================================================
+  로그아웃
+  ==========================================================
+  */
+
+  logoutBtn.addEventListener(
+    "click",
+    async function () {
+
+      const result =
+        confirm("로그아웃하시겠습니까?");
+
+      if (!result) return;
+
+
+      await supabaseClient.auth.signOut();
+
+      location.href = "index.html";
+
+    }
+  );
+
+
+  /*
+  ==========================================================
+  휴대전화 번호 간단 자동 정리
+  ==========================================================
+  */
+
+  document
+    .getElementById("phone")
+    .addEventListener(
+      "input",
+      function (event) {
+
+        let value =
+          event.target.value.replace(
+            /[^0-9]/g,
+            ""
+          );
+
+
+        if (value.length <= 3) {
+
+          event.target.value = value;
+
+        } else if (value.length <= 7) {
+
+          event.target.value =
+            value.slice(0, 3) +
+            "-" +
+            value.slice(3);
+
+        } else {
+
+          event.target.value =
+            value.slice(0, 3) +
+            "-" +
+            value.slice(3, 7) +
+            "-" +
+            value.slice(7, 11);
+
+        }
+
+      }
+    );
+
+
+  /*
+  ==========================================================
+  시험일 과거 날짜 선택 방지
+  ==========================================================
+  */
+
+  const today =
+    new Date();
+
+  const yyyy =
+    today.getFullYear();
+
+  const mm =
+    String(today.getMonth() + 1)
+      .padStart(2, "0");
+
+  const dd =
+    String(today.getDate())
+      .padStart(2, "0");
+
+  document
+    .getElementById("examDate")
+    .min =
+      `${yyyy}-${mm}-${dd}`;
+
+
+  /*
+  ==========================================================
+  원서접수 저장
+  ==========================================================
+  */
+
+  applicationForm.addEventListener(
+    "submit",
+    async function (event) {
+
+      event.preventDefault();
+
+
+      if (!currentUser) {
+
+        alert(
+          "로그인 정보가 없습니다. 다시 로그인해 주세요."
+        );
+
+        location.href = "login.html";
+
+        return;
+
+      }
+
+
+      const name =
+        document
+          .getElementById("name")
+          .value
+          .trim();
+
+      const email =
+        document
+          .getElementById("email")
+          .value
+          .trim();
+
+      const birthDate =
+        document
+          .getElementById("birthDate")
+          .value;
+
+      const gender =
+        document
+          .getElementById("gender")
+          .value;
+
+      const phone =
+        document
+          .getElementById("phone")
+          .value
+          .trim();
+
+      const examSubject =
+        document
+          .getElementById("examSubject")
+          .value;
+
+      const examDate =
+        document
+          .getElementById("examDate")
+          .value;
+
+      const examPlace =
+        document
+          .getElementById("examPlace")
+          .value;
+
+      const agree =
+        document
+          .getElementById("agree")
+          .checked;
+
+
+      /*
+      필수항목 검사
+      */
+
+      if (
+        !name ||
+        !email ||
+        !birthDate ||
+        !gender ||
+        !phone ||
+        !examSubject ||
+        !examDate ||
+        !examPlace
+      ) {
+
+        showMessage(
+          "필수 항목을 모두 입력해 주세요.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      if (!agree) {
+
+        showMessage(
+          "개인정보 수집 및 이용에 동의해 주세요.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      /*
+      중복 클릭 방지
+      */
+
+      submitBtn.disabled = true;
+      submitBtn.textContent =
+        "접수 처리 중...";
+
+      messageBox.className = "message";
+
+
+      /*
+      접수번호 생성
+      */
+
+      const applicationNumber =
+        createApplicationNumber();
+
+
+      try {
+
+        /*
+        Supabase applications 테이블 저장
+        */
+
+        const {
+          data,
+          error
+        } =
+          await supabaseClient
+            .from("applications")
+            .insert([
+              {
+
+                user_id:
+                  currentUser.id,
+
+                application_no:
+                  applicationNumber,
+
+                name:
+                  name,
+
+                email:
+                  email,
+
+                birth_date:
+                  birthDate,
+
+                gender:
+                  gender,
+
+                phone:
+                  phone,
+
+                exam_subject:
+                  examSubject,
+
+                exam_date:
+                  examDate,
+
+                exam_place:
+                  examPlace
+
+              }
+            ])
+            .select();
+
+
+        if (error) {
+
+          console.error(
+            "Supabase 저장 오류:",
+            error
+          );
+
+          showMessage(
+            "원서접수 저장 중 오류가 발생했습니다. " +
+            error.message,
+            "error"
+          );
+
+          submitBtn.disabled = false;
+          submitBtn.textContent =
+            "원서접수 완료";
+
+          return;
+
+        }
+
+
+        /*
+        접수 성공
+        */
+
+        document
+          .getElementById(
+            "issuedNumber"
+          )
+          .textContent =
+            applicationNumber;
+
+
+        applicationFormCard.style.display =
+          "none";
+
+        successCard.style.display =
+          "block";
+
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+
+      } catch (error) {
+
+        console.error(error);
+
+        showMessage(
+          "원서접수 처리 중 오류가 발생했습니다.",
+          "error"
+        );
+
+        submitBtn.disabled = false;
+        submitBtn.textContent =
+          "원서접수 완료";
+
+      }
+
+    }
+  );
+
+
+  /*
+  ==========================================================
+  페이지 시작
+  ==========================================================
+  */
+
+  checkLogin();
+
+</script>
+
+</body>
+</html>

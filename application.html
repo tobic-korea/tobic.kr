@@ -871,92 +871,71 @@ async function checkLogin() {
 
     try {
 
-  const { data, error } =
-  await supabaseClient.auth.getSession();
+        const { data, error } =
+            await supabaseClient.auth.getUser();
 
-const session = data?.session;
+        if (error) {
+            console.error("사용자 확인 오류:", error);
+        }
 
-      if (error) {
+        const user = data?.user;
 
-        console.error(error);
+        if (!user) {
 
-        alert(
-          "회원 로그인 정보를 확인할 수 없습니다."
+            alert("원서접수는 로그인 후 이용할 수 있습니다.");
+
+            window.location.href = "login.html";
+
+            return;
+        }
+
+        // 로그인 사용자 저장
+        currentUser = user;
+
+        // 이메일 자동 입력
+        emailInput.value = currentUser.email || "";
+
+        // 회원 이름 자동 입력
+        const metadata = currentUser.user_metadata || {};
+
+        const savedName =
+            metadata.display_name ||
+            metadata.name ||
+            metadata.full_name ||
+            "";
+
+        if (savedName) {
+
+            nameInput.value = savedName;
+
+            memberName.textContent =
+                savedName + "님";
+
+        } else {
+
+            memberName.textContent = "";
+
+        }
+
+        console.log(
+            "TOBIC 로그인 확인 완료:",
+            currentUser.email
         );
-
-        location.href = "login.html";
-
-        return;
-
-      }
-
-
-      if (!session || !session.user) {
-
-        alert(
-          "원서접수는 로그인 후 이용할 수 있습니다."
-        );
-
-        location.href = "login.html";
-
-        return;
-
-      }
-
-
-      currentUser = session.user;
-
-
-      /*
-      이메일 자동 입력
-      */
-
-      emailInput.value =
-        currentUser.email || "";
-
-
-      /*
-      회원 이름이 metadata에 있으면 자동 입력
-      */
-
-      const metadata =
-        currentUser.user_metadata || {};
-
-      const savedName =
-        metadata.display_name ||
-        metadata.name ||
-        metadata.full_name ||
-        "";
-
-
-      if (savedName) {
-
-        nameInput.value = savedName;
-
-        memberName.textContent =
-          savedName + "님";
-
-      } else {
-
-        memberName.textContent = "";
-
-      }
-
 
     } catch (error) {
 
-      console.error(error);
+        console.error(
+            "로그인 확인 중 오류:",
+            error
+        );
 
-      alert(
-        "로그인 확인 중 오류가 발생했습니다."
-      );
+        alert(
+            "로그인 정보를 확인하는 중 오류가 발생했습니다. 다시 로그인해 주세요."
+        );
 
-      location.href = "login.html";
-
+        window.location.href = "login.html";
     }
-
-  }
-
+}
 
   /*
   ==========================================================

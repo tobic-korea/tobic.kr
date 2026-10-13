@@ -79,17 +79,59 @@ const loginLink = document.getElementById("loginLink");
 const member = document.getElementById("member");
 const logoutButton = document.getElementById("logoutButton");
 
+
+const SUPABASE_URL = "https://zbnpdxxtkbkogjlswzpr.supabase.co";
+
+// login.html에 있는 SUPABASE_PUBLISHABLE_KEY 값을
+// 아래 따옴표 안에 그대로 복사해 넣으세요.
+const SUPABASE_PUBLISHABLE_KEY = "여기에_공개용_키_입력";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+
 async function init() {
   try {
-    // 실제 Supabase 연결 설정은 다음 단계에서 추가합니다.
+    const { data, error } =
+      await supabaseClient.auth.getUser();
+
+    if (error || !data.user) {
+      window.location.replace("login.html");
+      return;
+    }
+
+    const user = data.user;
+    const name =
+      user.user_metadata?.display_name ||
+      user.user_metadata?.name ||
+      user.user_metadata?.full_name ||
+      "회원";
+
     statusEl.textContent =
-      "마이페이지 화면이 정상적으로 표시되었습니다. 로그인 연결은 준비 중입니다.";
-    loginLink.hidden = false;
+      name + "님, TOBIC 마이페이지에 오신 것을 환영합니다.";
+
+    loginLink.hidden = true;
+    memberEl.textContent = "이메일: " + (user.email || "");
+
+    logoutButton.addEventListener("click", async () => {
+      const { error } = await supabaseClient.auth.signOut();
+
+      if (error) {
+        alert("로그아웃 오류: " + error.message);
+        return;
+      }
+
+      window.location.replace("login.html");
+    });
+
   } catch (error) {
     statusEl.textContent = "오류: " + error.message;
   }
 }
+
 init();
+
 </script>
 </body>
 </html>

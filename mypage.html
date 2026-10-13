@@ -111,9 +111,10 @@ async function init() {
     statusEl.textContent =
       name + "님, TOBIC 마이페이지에 오신 것을 환영합니다.";
 
-    loginLink.hidden = true;
-    memberEl.textContent = "이메일: " + (user.email || "");
-
+loginLink.hidden = true;
+memberEl.hidden = false;
+memberEl.textContent = "이메일: " + (user.email || "");
+logoutButton.hidden = false;
     logoutButton.addEventListener("click", async () => {
       const { error } = await supabaseClient.auth.signOut();
 

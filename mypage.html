@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>마이페이지 | TOBIC</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fa;color:#222}
+header{background:white;padding:22px 8%;border-bottom:1px solid #ddd}
+.logo{font-size:28px;font-weight:bold;color:#1555a7;text-decoration:none}
+header small{display:block;color:#777;margin-top:4px}
+nav{margin-top:16px;display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:#1555a7;text-decoration:none;font-weight:bold}
+.hero{background:#1d5cad;color:white;padding:42px 8%}
+.hero h1{margin:0 0 10px}
+main{max-width:950px;margin:35px auto;padding:0 18px}
+.card{background:white;border-radius:12px;padding:28px;margin-bottom:20px;box-shadow:0 3px 15px #0000000d}
+.card h2{color:#1555a7;font-size:21px}
+.btn{display:inline-block;background:#1555a7;color:white;padding:13px 20px;border-radius:7px;text-decoration:none;margin:5px 8px 5px 0;border:0;cursor:pointer}
+.btn.secondary{background:#64748b}
+.info{line-height:2}
+.notice{color:#666;font-size:14px}
+footer{text-align:center;color:#777;padding:30px}
+</style>
+</head>
+<body>
 
+<header>
+<a class="logo" href="index.html">TOBIC</a>
+<small>국제 실용 구기 능력 시험</small>
+<nav>
+<a href="index.html">홈페이지</a>
+<a href="application.html">원서접수</a>
+<a href="mypage.html">마이페이지</a>
+<a href="login.html">로그인</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>TOBIC 마이페이지</h1>
+<p>국제 실용 구기 능력 시험 회원 서비스</p>
+</section>
+
+<main>
+<section class="card">
+<h2>회원 정보</h2>
+<p id="status">로그인 상태를 확인하고 있습니다.</p>
+<div id="member" class="info" hidden>
+<div>이름: <strong id="name"></strong></div>
+<div>이메일: <strong id="email"></strong></div>
+</div>
+<a id="loginLink" class="btn" href="login.html" hidden>로그인하기</a>
+<button id="logoutButton" class="btn secondary" hidden>로그아웃</button>
+</section>
+
+<section class="card">
+<h2>원서접수</h2>
+<p>TOBIC 시험에 응시하기 위한 원서를 접수할 수 있습니다.</p>
+<a class="btn" href="application.html">원서접수 바로가기</a>
+</section>
+
+<section class="card">
+<h2>성적조회</h2>
+<p>TOBIC 시험 성적을 확인하는 메뉴입니다.</p>
+<p class="notice">성적 데이터 연동은 추후 연결합니다.</p>
+</section>
+</main>
+
+<footer>
+TOBIC 국제 실용 구기 능력 시험<br>
+Test Of Ball sports for International Certification
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const statusEl = document.getElementById("status");
+const loginLink = document.getElementById("loginLink");
+const member = document.getElementById("member");
+const logoutButton = document.getElementById("logoutButton");
+
+async function init() {
+  try {
+    // 실제 Supabase 연결 설정은 다음 단계에서 추가합니다.
+    statusEl.textContent =
+      "마이페이지 화면이 정상적으로 표시되었습니다. 로그인 연결은 준비 중입니다.";
+    loginLink.hidden = false;
+  } catch (error) {
+    statusEl.textContent = "오류: " + error.message;
+  }
+}
+init();
+</script>
+</body>
+</html>

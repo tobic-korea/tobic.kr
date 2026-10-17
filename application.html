@@ -871,9 +871,20 @@ async function checkLogin() {
 
     try {
 
-        const { data, error } =
-            await supabaseClient.auth.getUser();
+const { data: sessionData, error: sessionError } =
+  await supabaseClient.auth.getSession();
 
+if (sessionError) {
+  throw sessionError;
+}
+
+const session = sessionData.session;
+
+const data = {
+  user: session ? session.user : null
+};
+
+const error = null;
         if (error) {
             console.error("사용자 확인 오류:", error);
         }

@@ -889,8 +889,7 @@ const error = null;
             console.error("사용자 확인 오류:", error);
         }
 
-        const user = data?.user;
-
+  const user = session?.user ?? null;
         if (!user) {
 
             alert("원서접수는 로그인 후 이용할 수 있습니다.");

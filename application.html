@@ -868,85 +868,50 @@
   */
 
 async function checkLogin() {
-
+    // 로그인 페이지와 같은 Supabase 프로젝트의 세션을 확인합니다.
     try {
+        let { data, error } = await supabaseClient.auth.getSession();
+        if (error) throw error;
+        let session = data?.session ?? null;
 
-const { data: sessionData, error: sessionError } =
-  await supabaseClient.auth.getSession();
-
-if (sessionError) {
-  throw sessionError;
-}
-
-const session = sessionData.session;
-
-const data = {
-  user: session ? session.user : null
-};
-
-const error = null;
-        if (error) {
-            console.error("사용자 확인 오류:", error);
+        // 페이지 이동 직후 세션 복원이 늦어지는 경우 한 번 더 확인합니다.
+        if (!session) {
+            await new Promise(resolve => setTimeout(resolve, 700));
+            const retry = await supabaseClient.auth.getSession();
+            if (retry.error) throw retry.error;
+            session = retry.data?.session ?? null;
         }
 
-  const user = session?.user ?? null;
-        if (!user) {
-
-            alert("원서접수는 로그인 후 이용할 수 있습니다.");
-
-            window.location.href = "login.html";
-
+        if (!session?.user) {
+            console.warn("TOBIC 원서접수: 현재 페이지에서 로그인 세션을 찾지 못했습니다.");
+            showMessage("로그인 상태를 확인할 수 없습니다. 로그인 페이지에서 로그인한 뒤 원서접수를 다시 열어 주세요.", "error");
+            applicationFormCard.style.display = "none";
+            const loginLink = document.createElement("a");
+            loginLink.href = "login.html";
+            loginLink.textContent = "로그인 페이지로 이동";
+            loginLink.className = "mypage-btn";
+            loginLink.style.display = "inline-block";
+            document.querySelector("main").appendChild(loginLink);
             return;
         }
 
-        // 로그인 사용자 저장
-        currentUser = user;
-
-        // 이메일 자동 입력
+        currentUser = session.user;
         emailInput.value = currentUser.email || "";
-
-        // 회원 이름 자동 입력
         const metadata = currentUser.user_metadata || {};
-
-        const savedName =
-            metadata.display_name ||
-            metadata.name ||
-            metadata.full_name ||
-            "";
-
+        const savedName = metadata.display_name || metadata.name || metadata.full_name || "";
         if (savedName) {
-
             nameInput.value = savedName;
-
-            memberName.textContent =
-                savedName + "님";
-
+            memberName.textContent = savedName + "님";
         } else {
-
             memberName.textContent = "";
-
         }
-
-        console.log(
-            "TOBIC 로그인 확인 완료:",
-            currentUser.email
-        );
-
+        console.log("TOBIC 원서접수: 로그인 세션 확인 완료");
     } catch (error) {
-
-        console.error(
-            "로그인 확인 중 오류:",
-            error
-        );
-
-        alert(
-            "로그인 정보를 확인하는 중 오류가 발생했습니다. 다시 로그인해 주세요."
-        );
-
-        window.location.href = "login.html";
+        console.error("TOBIC 원서접수 로그인 확인 오류:", error);
+        showMessage("로그인 정보를 확인하는 중 오류가 발생했습니다. 새로고침 후 다시 시도해 주세요.", "error");
+        applicationFormCard.style.display = "none";
     }
 }
-
   /*
   ==========================================================
   로그아웃

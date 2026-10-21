@@ -1,138 +1,52 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>마이페이지 | TOBIC</title>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOBIC 마이페이지</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f3f6fa;color:#222}
-header{background:white;padding:22px 8%;border-bottom:1px solid #ddd}
-.logo{font-size:28px;font-weight:bold;color:#1555a7;text-decoration:none}
-header small{display:block;color:#777;margin-top:4px}
-nav{margin-top:16px;display:flex;gap:20px;flex-wrap:wrap}
-nav a{color:#1555a7;text-decoration:none;font-weight:bold}
-.hero{background:#1d5cad;color:white;padding:42px 8%}
-.hero h1{margin:0 0 10px}
-main{max-width:950px;margin:35px auto;padding:0 18px}
-.card{background:white;border-radius:12px;padding:28px;margin-bottom:20px;box-shadow:0 3px 15px #0000000d}
-.card h2{color:#1555a7;font-size:21px}
-.btn{display:inline-block;background:#1555a7;color:white;padding:13px 20px;border-radius:7px;text-decoration:none;margin:5px 8px 5px 0;border:0;cursor:pointer}
-.btn.secondary{background:#64748b}
-.info{line-height:2}
-.notice{color:#666;font-size:14px}
-footer{text-align:center;color:#777;padding:30px}
-</style>
-</head>
-<body>
-
-<header>
-<a class="logo" href="index.html">TOBIC</a>
-<small>국제 실용 구기 능력 시험</small>
-<nav>
-<a href="index.html">홈페이지</a>
-<a href="application.html">원서접수</a>
-<a href="mypage.html">마이페이지</a>
-<a href="login.html">로그인</a>
-</nav>
-</header>
-
-<section class="hero">
-<h1>TOBIC 마이페이지</h1>
-<p>국제 실용 구기 능력 시험 회원 서비스</p>
-</section>
-
-<main>
-<section class="card">
-<h2>회원 정보</h2>
-<p id="status">로그인 상태를 확인하고 있습니다.</p>
-<div id="member" class="info" hidden>
-<div>이름: <strong id="name"></strong></div>
-<div>이메일: <strong id="email"></strong></div>
-</div>
-<a id="loginLink" class="btn" href="login.html" hidden>로그인하기</a>
-<button id="logoutButton" class="btn secondary" hidden>로그아웃</button>
-</section>
-
-<section class="card">
-<h2>원서접수</h2>
-<p>TOBIC 시험에 응시하기 위한 원서를 접수할 수 있습니다.</p>
-<a class="btn" href="application.html">원서접수 바로가기</a>
-</section>
-
-<section class="card">
-<h2>성적조회</h2>
-<p>TOBIC 시험 성적을 확인하는 메뉴입니다.</p>
-<p class="notice">성적 데이터 연동은 추후 연결합니다.</p>
-</section>
-</main>
-
-<footer>
-TOBIC 국제 실용 구기 능력 시험<br>
-Test Of Ball sports for International Certification
-</footer>
-
+*{box-sizing:border-box}body{margin:0;background:#f3f6fa;font-family:Arial,'Malgun Gothic',sans-serif;color:#222}
+header{background:white;padding:22px 8%}header strong{font-size:28px;color:#1555a7}nav{margin-top:15px}nav a{color:#1555a7;text-decoration:none;font-weight:bold;margin-right:18px}
+.hero{background:#1d5cad;color:white;padding:34px 8%}.hero h1{margin:0 0 12px}
+main{max-width:950px;margin:25px auto;padding:0 18px}.card{background:white;border-radius:12px;padding:28px;margin-bottom:18px;box-shadow:0 3px 15px #0000000a}
+h2{font-size:21px;color:#1555a7}.btn{display:inline-block;background:#1555a7;color:white;border:0;border-radius:6px;text-decoration:none;padding:12px 16px;margin-top:10px;cursor:pointer}
+.secondary{background:#64748b}.notice{background:#edf5ff;border:1px solid #c9dffb;border-radius:7px;padding:14px;white-space:pre-line}
+.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:650px;font-size:14px}th,td{padding:12px;border-bottom:1px solid #e4e8ef;text-align:left}th{background:#f1f5fa}
+footer{text-align:center;color:#777;padding:25px;font-size:13px}
+</style></head><body>
+<header><strong>TOBIC</strong><div>국제 실용 구기 능력 시험</div>
+<nav><a href="index.html">홈페이지</a><a href="application.html">원서접수</a><a href="mypage.html">마이페이지</a><a id="loginNav" href="login.html" hidden>로그인</a></nav></header>
+<div class="hero"><h1>TOBIC 마이페이지</h1>국제 실용 구기 능력 시험 회원 서비스</div>
+<main><section class="card"><h2>회원 정보</h2><div id="memberStatus" class="notice">로그인 정보를 확인하고 있습니다.</div>
+<div id="member" hidden><p id="welcome"></p><p id="email"></p><button id="logout" class="btn secondary">로그아웃</button></div>
+<a id="login" href="login.html" class="btn" hidden>로그인하기</a></section>
+<section class="card"><h2>나의 원서접수 내역</h2><p>본인이 신청한 TOBIC 시험 접수 내역입니다.</p>
+<div id="appStatus" class="notice">접수 내역을 확인하고 있습니다.</div>
+<div id="results" class="wrap" hidden><table><thead><tr><th>접수번호</th><th>시험종목</th><th>시험일자</th><th>시험장</th><th>접수상태</th></tr></thead><tbody id="rows"></tbody></table></div>
+<a class="btn" href="application.html">원서접수 바로가기</a></section>
+<section class="card"><h2>성적조회</h2><p>TOBIC 성적 조회 기능은 추후 연결될 예정입니다.</p></section></main>
+<footer>TOBIC 국제 실용 구기 능력 시험<br>Test Of Ball Sports for International Certification<br>시험 주관: 세계킥테니스연맹(WKF)</footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const statusEl = document.getElementById("status");
-const loginLink = document.getElementById("loginLink");
-const memberEl = document.getElementById("member");
-const logoutButton = document.getElementById("logoutButton");
-
-
-const SUPABASE_URL = "https://zbnpdxxtkbkogjlswzpr.supabase.co";
-
-// login.html에 있는 SUPABASE_PUBLISHABLE_KEY 값을
-// 아래 따옴표 안에 그대로 복사해 넣으세요.
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_E2Urt7TjWt9b4M0MW1CYeQ_sFa45BDG";
-
-const supabaseClient = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_PUBLISHABLE_KEY
-);
-
-async function init() {
-  try {
-    const { data, error } =
-      await supabaseClient.auth.getUser();
-
-    if (error || !data.user) {
-      window.location.replace("login.html");
-      return;
-    }
-
-    const user = data.user;
-    const name =
-      user.user_metadata?.display_name ||
-      user.user_metadata?.name ||
-      user.user_metadata?.full_name ||
-      "회원";
-
-    statusEl.textContent =
-      name + "님, TOBIC 마이페이지에 오신 것을 환영합니다.";
-
-loginLink.hidden = true;
-memberEl.hidden = false;
-memberEl.textContent = "이메일: " + (user.email || "");
-logoutButton.hidden = false;
-    logoutButton.addEventListener("click", async () => {
-      const { error } = await supabaseClient.auth.signOut();
-
-      if (error) {
-        alert("로그아웃 오류: " + error.message);
-        return;
-      }
-
-      window.location.replace("login.html");
-    });
-
-  } catch (error) {
-    statusEl.textContent = "오류: " + error.message;
-  }
+const SUPABASE_URL="https://zbnpdxxxtkbkogjlswzpr.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_E2UrT7jWtb94W0MW1CYeQ_sFa45BDG";
+const el=id=>document.getElementById(id);
+function loggedOut(){el("memberStatus").textContent="로그인 후 이용할 수 있습니다.";el("login").hidden=false;el("loginNav").hidden=false;el("appStatus").textContent="로그인하면 본인의 접수 내역이 표시됩니다.";}
+async function init(){
+ if(!window.supabase){el("memberStatus").textContent="Supabase 연결 프로그램을 불러오지 못했습니다. 새로고침해 주세요.";return;}
+ const client=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+ try{
+  const {data:{user},error}=await client.auth.getUser();
+  if(error||!user){loggedOut();return;}
+  const m=user.user_metadata||{};
+  el("welcome").textContent=(m.display_name||m.name||m.full_name||"회원")+"님, TOBIC 마이페이지에 오신 것을 환영합니다.";
+  el("email").textContent="이메일: "+(user.email||"");
+  el("memberStatus").hidden=true;el("member").hidden=false;
+  el("logout").addEventListener("click",async()=>{const {error:e}=await client.auth.signOut();if(e){alert("로그아웃 오류: "+e.message);return;}location.href="login.html";});
+  const {data:items,error:queryError}=await client.from("applications").select("application_number,exam_type,exam_date,exam_location,status").eq("user_id",user.id).order("created_at",{ascending:false});
+  if(queryError){el("appStatus").textContent="접수 내역 조회 오류: "+queryError.message+"\n관리자에게 RLS 조회 정책을 확인해 달라고 요청해 주세요.";return;}
+  if(!items||!items.length){el("appStatus").textContent="현재 확인되는 원서접수 내역이 없습니다.";return;}
+  const tbody=el("rows");tbody.replaceChildren();
+  for(const item of items){const tr=document.createElement("tr");for(const k of ["application_number","exam_type","exam_date","exam_location","status"]){const td=document.createElement("td");td.textContent=item[k]==null?"-":String(item[k]);tr.appendChild(td);}tbody.appendChild(tr);}
+  el("appStatus").hidden=true;el("results").hidden=false;
+ }catch(e){console.error(e);el("memberStatus").textContent="정보를 확인하는 중 오류가 발생했습니다: "+e.message;}
 }
-
 init();
-
-</script>
-</body>
-</html>
+</script></body></html>

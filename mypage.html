@@ -1,59 +1,59 @@
 <!DOCTYPE html>
-<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TOBIC 마이페이지</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f3f6fa;font-family:Arial,'Malgun Gothic',sans-serif;color:#222}
 header{background:white;padding:22px 8%}header strong{font-size:28px;color:#1555a7}nav{margin-top:15px}nav a{color:#1555a7;text-decoration:none;font-weight:bold;margin-right:18px}
 .hero{background:#1d5cad;color:white;padding:34px 8%}.hero h1{margin:0 0 12px}
 main{max-width:950px;margin:25px auto;padding:0 18px}.card{background:white;border-radius:12px;padding:28px;margin-bottom:18px;box-shadow:0 3px 15px #0000000a}
-h2{font-size:21px;color:#1555a7}.btn{display:inline-block;background:#1555a7;color:white;border:0;border-radius:6px;text-decoration:none;padding:12px 16px;margin-top:10px;cursor:pointer}
-.secondary{background:#64748b}.notice{background:#edf5ff;border:1px solid #c9dffb;border-radius:7px;padding:14px;white-space:pre-line}
-.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:650px;font-size:14px}th,td{padding:12px;border-bottom:1px solid #e4e8ef;text-align:left}th{background:#f1f5fa}
-footer{text-align:center;color:#777;padding:25px;font-size:13px}
-</style></head><body>
-<header><strong>TOBIC</strong><div>국제 실용 구기 능력 시험</div>
-<nav><a href="index.html">홈페이지</a><a href="application.html">원서접수</a><a href="mypage.html">마이페이지</a><a id="loginNav" href="login.html" hidden>로그인</a></nav></header>
+h2{font-size:21px;color:#1555a7}.btn{display:inline-block;background:#1555a7;color:white;border:0;border-radius:6px;text-decoration:none;padding:12px 16px;margin-top:10px;cursor:pointer}.secondary{background:#64748b}.notice{background:#edf5ff;border:1px solid #c9dffb;border-radius:7px;padding:14px;white-space:pre-line}
+.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:650px;font-size:14px}th,td{padding:12px;border-bottom:1px solid #e4e8ef;text-align:left}th{background:#f1f5fa}footer{text-align:center;color:#777;padding:25px;font-size:13px}
+.ticket-btn{font-size:13px;padding:8px 10px;margin-top:0;white-space:nowrap}
+#ticketPanel{border:2px solid #1555a7;padding:28px;margin-top:18px;background:white;border-radius:10px}
+.ticket-head{text-align:center;border-bottom:2px solid #1555a7;padding-bottom:16px}.ticket-head h2{font-size:28px;margin:10px 0}.ticket-head p{margin:5px 0}
+.ticket-table{min-width:0;margin-top:20px}.ticket-table th{width:30%;background:#edf5ff}.ticket-table td{overflow-wrap:anywhere}
+.ticket-foot{margin-top:24px;text-align:center;font-size:14px;line-height:1.8}
+.ticket-actions{margin-top:15px;display:flex;gap:10px;flex-wrap:wrap}
+@media print{ @page{size:A4;margin:15mm}body{background:white}header,.hero,main>.card,footer,.ticket-actions{display:none!important}main{margin:0;max-width:none;padding:0}#ticketSection{display:block!important;box-shadow:none;border:0;margin:0;padding:0}#ticketPanel{display:block!important;border:2px solid #1555a7;border-radius:0;break-inside:avoid}#ticketSection>h2,#ticketSection>.notice{display:none!important} }
+</style>
+</head>
+<body>
+<header><strong>TOBIC</strong><div>국제 실용 구기 능력 시험</div><nav><a href="index.html">홈페이지</a><a href="application.html">원서접수</a><a href="mypage.html">마이페이지</a><a id="loginNav" href="login.html" hidden>로그인</a></nav></header>
 <div class="hero"><h1>TOBIC 마이페이지</h1>국제 실용 구기 능력 시험 회원 서비스</div>
-<main><section class="card"><h2>회원 정보</h2><div id="memberStatus" class="notice">로그인 정보를 확인하고 있습니다.</div>
-<div id="member" hidden><p id="welcome"></p><p id="email"></p><button id="logout" class="btn secondary">로그아웃</button></div>
-<a id="login" href="login.html" class="btn" hidden>로그인하기</a></section>
-<section class="card"><h2>나의 원서접수 내역</h2><p>본인이 신청한 TOBIC 시험 접수 내역입니다.</p>
-<div id="appStatus" class="notice">접수 내역을 확인하고 있습니다.</div>
-<div id="results" class="wrap" hidden><table><thead><tr><th>접수번호</th><th>시험종목</th><th>시험일자</th><th>시험장</th><th>접수상태</th></tr></thead><tbody id="rows"></tbody></table></div>
-<a class="btn" href="application.html">원서접수 바로가기</a></section>
-<section class="card"><h2>성적조회</h2><p>TOBIC 성적 조회 기능은 추후 연결될 예정입니다.</p></section></main>
+<main>
+<section class="card"><h2>회원 정보</h2><div id="memberStatus" class="notice">로그인 정보를 확인하고 있습니다.</div><div id="member" hidden><p id="welcome"></p><p id="email"></p><button id="logout" class="btn secondary">로그아웃</button></div><a id="login" href="login.html" class="btn" hidden>로그인하기</a></section>
+<section class="card"><h2>나의 원서접수 내역</h2><p>본인이 신청한 TOBIC 시험 접수 내역입니다.</p><div id="appStatus" class="notice">접수 내역을 확인하고 있습니다.</div><div id="results" class="wrap" hidden><table><thead><tr><th>접수번호</th><th>시험종목</th><th>시험일자</th><th>시험장</th><th>접수상태</th><th>수험표</th></tr></thead><tbody id="rows"></tbody></table></div><a class="btn" href="application.html">원서접수 바로가기</a></section>
+<section class="card" id="ticketSection" hidden><h2>수험표 조회·인쇄</h2><div id="ticketPanel"><div class="ticket-head"><strong>TOBIC</strong><h2>국제 실용 구기 능력 시험 수험표</h2><p>Test Of Ball Sports for International Certification</p></div><table class="ticket-table"><tbody><tr><th>접수번호</th><td id="ticketNumber"></td></tr><tr><th>성명</th><td id="ticketName"></td></tr><tr><th>시험종목</th><td id="ticketType"></td></tr><tr><th>시험일자</th><td id="ticketDate"></td></tr><tr><th>시험장</th><td id="ticketLocation"></td></tr><tr><th>접수상태</th><td id="ticketStatus"></td></tr></tbody></table><div class="ticket-foot">시험 당일 신분증과 본 수험표를 지참해 주세요.<br><strong>시험 주관: 세계킥테니스연맹(WKF)</strong><br>www.wkf.kr</div></div><div class="ticket-actions"><button type="button" class="btn" id="printTicket">수험표 인쇄 / PDF 저장</button><button type="button" class="btn secondary" id="closeTicket">닫기</button></div></section>
+<section class="card"><h2>성적조회</h2><p>TOBIC 성적 조회 기능은 추후 연결될 예정입니다.</p></section>
+</main>
 <footer>TOBIC 국제 실용 구기 능력 시험<br>Test Of Ball Sports for International Certification<br>시험 주관: 세계킥테니스연맹(WKF)</footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const SUPABASE_URL="https://zbnpdxxtkbkogjlswzpr.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_E2Urt7TjWt9b4M0MW1CYeQ_sFa45BDG";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_E2Urt7TjWt9b4M0MW1CYeQ_sFa45BDG";
 const el=id=>document.getElementById(id);
 function loggedOut(){el("memberStatus").textContent="로그인 후 이용할 수 있습니다.";el("login").hidden=false;el("loginNav").hidden=false;el("appStatus").textContent="로그인하면 본인의 접수 내역이 표시됩니다.";}
+function setTicketField(id,value){el(id).textContent=value==null||value===""?"-":String(value);}
+function showTicket(item,name){setTicketField("ticketNumber",item.application_number);setTicketField("ticketName",name);setTicketField("ticketType",item.exam_type);setTicketField("ticketDate",item.exam_date);setTicketField("ticketLocation",item.exam_location);setTicketField("ticketStatus",item.status);el("ticketSection").hidden=false;el("ticketSection").scrollIntoView({behavior:"smooth",block:"start"});}
+el("printTicket").addEventListener("click",()=>window.print());
+el("closeTicket").addEventListener("click",()=>{el("ticketSection").hidden=true;});
 async function init(){
  if(!window.supabase){el("memberStatus").textContent="Supabase 연결 프로그램을 불러오지 못했습니다. 새로고침해 주세요.";return;}
  const client=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
  try{
-  // 원서접수 페이지와 동일하게 저장된 세션을 먼저 확인합니다.
   let {data:sessionData,error:sessionError}=await client.auth.getSession();
-  if(!sessionData?.session){
-    await new Promise(resolve=>setTimeout(resolve,700));
-    ({data:sessionData,error:sessionError}=await client.auth.getSession());
-  }
+  if(!sessionData?.session){await new Promise(resolve=>setTimeout(resolve,700));({data:sessionData,error:sessionError}=await client.auth.getSession());}
   const session=sessionData?.session;
-  if(!session){
-    loggedOut();
-    el("memberStatus").textContent="로그인 정보를 찾지 못했습니다. 로그인과 마이페이지의 주소가 모두 tobic.kr인지 확인해 주세요."+(sessionError?" 오류: "+sessionError.message:"");
-    return;
-  }
+  if(!session){loggedOut();el("memberStatus").textContent="로그인 정보를 찾지 못했습니다. 로그인과 마이페이지의 주소가 모두 tobic.kr인지 확인해 주세요."+(sessionError?" 오류: "+sessionError.message:"");return;}
   const user=session.user;
-  // 서버 인증은 추가로 검증하지만, 실패 시 원인 메시지를 보여줍니다.
   const verified=await client.auth.getUser();
-  if(verified.error||!verified.data?.user){
-    el("memberStatus").textContent="저장된 로그인 정보는 있지만 서버 인증에 실패했습니다: "+(verified.error?.message||"사용자 확인 실패");
-    return;
-  }
+  if(verified.error||!verified.data?.user){el("memberStatus").textContent="저장된 로그인 정보는 있지만 서버 인증에 실패했습니다: "+(verified.error?.message||"사용자 확인 실패");return;}
   const m=user.user_metadata||{};
-  el("welcome").textContent=(m.display_name||m.name||m.full_name||"회원")+"님, TOBIC 마이페이지에 오신 것을 환영합니다.";
+  const name=m.display_name||m.name||m.full_name||"회원";
+  el("welcome").textContent=name+"님, TOBIC 마이페이지에 오신 것을 환영합니다.";
   el("email").textContent="이메일: "+(user.email||"");
   el("memberStatus").hidden=true;el("member").hidden=false;
   el("logout").addEventListener("click",async()=>{const {error:e}=await client.auth.signOut();if(e){alert("로그아웃 오류: "+e.message);return;}location.href="login.html";});
@@ -61,9 +61,15 @@ async function init(){
   if(queryError){el("appStatus").textContent="접수 내역 조회 오류: "+queryError.message+"\n관리자에게 RLS 조회 정책을 확인해 달라고 요청해 주세요.";return;}
   if(!items||!items.length){el("appStatus").textContent="현재 확인되는 원서접수 내역이 없습니다.";return;}
   const tbody=el("rows");tbody.replaceChildren();
-  for(const item of items){const tr=document.createElement("tr");for(const k of ["application_number","exam_type","exam_date","exam_location","status"]){const td=document.createElement("td");td.textContent=item[k]==null?"-":String(item[k]);tr.appendChild(td);}tbody.appendChild(tr);}
+  for(const item of items){
+   const tr=document.createElement("tr");
+   for(const k of ["application_number","exam_type","exam_date","exam_location","status"]){const td=document.createElement("td");td.textContent=item[k]==null?"-":String(item[k]);tr.appendChild(td);}
+   const td=document.createElement("td");const btn=document.createElement("button");btn.type="button";btn.className="btn ticket-btn";btn.textContent="수험표 보기";btn.addEventListener("click",()=>showTicket(item,name));td.appendChild(btn);tr.appendChild(td);tbody.appendChild(tr);
+  }
   el("appStatus").hidden=true;el("results").hidden=false;
  }catch(e){console.error(e);el("memberStatus").textContent="정보를 확인하는 중 오류가 발생했습니다: "+e.message;}
 }
 init();
-</script></body></html>
+</script>
+</body>
+</html>

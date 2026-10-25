@@ -33,8 +33,25 @@ async function init(){
  if(!window.supabase){el("memberStatus").textContent="Supabase 연결 프로그램을 불러오지 못했습니다. 새로고침해 주세요.";return;}
  const client=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
  try{
-  const {data:{user},error}=await client.auth.getUser();
-  if(error||!user){loggedOut();return;}
+  // 원서접수 페이지와 동일하게 저장된 세션을 먼저 확인합니다.
+  let {data:sessionData,error:sessionError}=await client.auth.getSession();
+  if(!sessionData?.session){
+    await new Promise(resolve=>setTimeout(resolve,700));
+    ({data:sessionData,error:sessionError}=await client.auth.getSession());
+  }
+  const session=sessionData?.session;
+  if(!session){
+    loggedOut();
+    el("memberStatus").textContent="로그인 정보를 찾지 못했습니다. 로그인과 마이페이지의 주소가 모두 tobic.kr인지 확인해 주세요."+(sessionError?" 오류: "+sessionError.message:"");
+    return;
+  }
+  const user=session.user;
+  // 서버 인증은 추가로 검증하지만, 실패 시 원인 메시지를 보여줍니다.
+  const verified=await client.auth.getUser();
+  if(verified.error||!verified.data?.user){
+    el("memberStatus").textContent="저장된 로그인 정보는 있지만 서버 인증에 실패했습니다: "+(verified.error?.message||"사용자 확인 실패");
+    return;
+  }
   const m=user.user_metadata||{};
   el("welcome").textContent=(m.display_name||m.name||m.full_name||"회원")+"님, TOBIC 마이페이지에 오신 것을 환영합니다.";
   el("email").textContent="이메일: "+(user.email||"");

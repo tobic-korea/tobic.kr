@@ -1,0 +1,6 @@
+/* TOBIC SVG 그림 영역: 기존 채점 및 문구에는 영향 없음 */
+.tobic-illustration{margin-top:10px;max-width:800px}
+.tobic-illustration details{border:1px solid #dbe5f1;border-radius:9px;background:#f8fbff;padding:8px 12px}
+.tobic-illustration summary{cursor:pointer;color:#1458a7;font-size:13px;font-weight:700;list-style:revert}
+.tobic-illustration img{display:block;width:100%;height:auto;margin:10px auto 0;border-radius:8px;background:#fff}
+@media print{.tobic-illustration{display:none!important}}

@@ -1,6 +1,103 @@
-/* TOBIC SVG 그림 영역: 기존 채점 및 문구에는 영향 없음 */
-.tobic-illustration{margin-top:10px;max-width:800px}
-.tobic-illustration details{border:1px solid #dbe5f1;border-radius:9px;background:#f8fbff;padding:8px 12px}
-.tobic-illustration summary{cursor:pointer;color:#1458a7;font-size:13px;font-weight:700;list-style:revert}
-.tobic-illustration img{display:block;width:100%;height:auto;margin:10px auto 0;border-radius:8px;background:#fff}
-@media print{.tobic-illustration{display:none!important}}
+
+/* TOBIC 동작 그림 반응형 디자인 */
+.tobic-illustration {
+  margin-top: 10px;
+  max-width: 800px;
+  min-width: 0;
+}
+
+.tobic-illustration details {
+  border: 1px solid #dbe5f1;
+  border-radius: 9px;
+  background: #f8fbff;
+  padding: 8px 12px;
+}
+
+.tobic-illustration summary {
+  cursor: pointer;
+  color: #1458a7;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.tobic-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 10px auto 0;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* 휴대전화 화면 최적화 */
+@media screen and (max-width: 650px) {
+  main {
+    padding: 0 8px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    padding: 18px 0;
+  }
+
+  .num {
+    font-size: 18px;
+  }
+
+  .task {
+    min-width: 0;
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+  }
+
+  .tobic-illustration {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .tobic-illustration details {
+    padding: 6px;
+    overflow-x: auto;
+  }
+
+  .tobic-illustration summary {
+    font-size: 16px;
+    padding: 10px 4px;
+  }
+
+  .tobic-illustration img {
+    width: 100%;
+    min-width: 560px;
+    max-width: none;
+  }
+
+  .inputbox {
+    grid-column: 1;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .inputbox input {
+    width: 90px;
+    min-height: 48px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .inputbox span {
+    font-size: 15px;
+  }
+}
+
+/* 인쇄 시 그림 제외 */
+@media print {
+  .tobic-illustration {
+    display: none !important;
+  }
+}
